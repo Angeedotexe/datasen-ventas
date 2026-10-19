@@ -1,0 +1,13 @@
+Fecha,Producto,Categoria,Precio,Cantidad,Pago
+2026-01-05,Laptop,Computadoras,12000,2,Tarjeta
+2026-01-12,Mouse,Accesorios,250,5,Efectivo
+2026-02-03,Teclado,Accesorios,600,3,Tarjeta
+2026-02-15,Monitor,Pantallas,3500,1,Transferencia
+2026-03-02,Laptop,Computadoras,12000,1,Efectivo
+2026-03-18,Auriculares,Accesorios,450,4,Tarjeta
+2026-04-07,Mouse,Accesorios,250,8,Efectivo
+2026-04-20,Monitor,Pantallas,3500,2,Transferencia
+2026-05-09,Teclado,Accesorios,600,5,Tarjeta
+2026-05-22,Laptop,Computadoras,12000,1,Transferencia
+2026-06-04,Auriculares,Accesorios,450,3,Efectivo
+2026-06-19,Mouse,Accesorios,250,6,Tarjeta
