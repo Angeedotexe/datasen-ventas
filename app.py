@@ -7,7 +7,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# Cargar el dataset desde el archivo CSV
+
 @st.cache_data
 def cargar_datos():
     df = pd.read_csv("ventas.csv")
@@ -18,11 +18,11 @@ def cargar_datos():
 
 df = cargar_datos()
 
-# Titulo
+
 st.title("Dashboard de ventas")
 st.write("Consulta y analiza los registros de ventas.")
 
-# Barra lateral
+
 st.sidebar.header("Controles")
 
 categorias = st.sidebar.multiselect(
@@ -43,10 +43,10 @@ pagos = st.sidebar.multiselect(
     default=sorted(df["Pago"].unique())
 )
 
-# Busqueda por texto
+
 busqueda = st.text_input("Buscar producto")
 
-# Aplicar filtros
+
 filtrado = df[
     df["Categoria"].isin(categorias)
     & df["Mes"].isin(meses)
@@ -60,7 +60,6 @@ if busqueda:
         )
     ]
 
-# Indicadores
 col1, col2, col3 = st.columns(3)
 
 col1.metric(
@@ -78,12 +77,10 @@ col3.metric(
 
 st.divider()
 
-# Checkbox para mostrar el dataset
 if st.checkbox("Mostrar dataset"):
     st.subheader("Base de datos de ventas")
     st.dataframe(filtrado, use_container_width=True)
 
-# Checkbox para grafica 1
 if st.checkbox("Mostrar grafica de ventas por categoria"):
     st.subheader("Ventas por categoria")
     ventas_categoria = (
@@ -91,7 +88,7 @@ if st.checkbox("Mostrar grafica de ventas por categoria"):
     )
     st.bar_chart(ventas_categoria)
 
-# Checkbox para grafica 2
+
 if st.checkbox("Mostrar grafica de ventas por mes"):
     st.subheader("Ventas por mes")
     ventas_mes = (
@@ -99,13 +96,12 @@ if st.checkbox("Mostrar grafica de ventas por mes"):
     )
     st.line_chart(ventas_mes)
 
-# Checkbox para grafica 3
 if st.checkbox("Mostrar grafica por metodo de pago"):
     st.subheader("Ventas por metodo de pago")
     ventas_pago = filtrado.groupby("Pago")["Total"].sum()
     st.bar_chart(ventas_pago)
 
-# Acerca de
+
 st.divider()
 st.subheader("Acerca de")
 
@@ -114,7 +110,7 @@ st.write("Carrera: Licenciatura en Ingeniería de Software")
 st.write("Matrícula: zS26004664")
 st.write("Ciudad natal: Coscomatepec, Veracruz, México")
 
-# Mapa de la ciudad natal
+
 st.subheader("Ubicacion de mi ciudad natal")
 
 mapa = pd.DataFrame({
